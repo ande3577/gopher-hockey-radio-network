@@ -171,4 +171,11 @@ public class DistanceSource implements IDistanceSource {
 	public List<Boolean> getDurationValids() {
 		return getDistanceValids();
 	}
+
+	public void updateDistance(String src, String dest, IProgressBar progressBar)
+			throws Exception {
+		List<String> dests = new ArrayList<String>();
+		dests.add(dest);
+		updateDistances(src, dests, progressBar);
+	}
 }

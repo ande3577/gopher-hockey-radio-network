@@ -15,9 +15,7 @@ public class baseBallRadioActivity extends Activity {
 	@SuppressWarnings("unused")
 	private FileFactory file;
 	
-	private UserSettings settings;
-	
-	private UserSettingsSource userSettingsSource;
+	private Factory factory;
 	
 	StationList stationList = null;
 	
@@ -30,8 +28,8 @@ public class baseBallRadioActivity extends Activity {
 		file = new FileFactory(this);
 		
 		stationList = new StationList();
-		settings = new UserSettings();
-		userSettingsSource = new UserSettingsSource(this, settings);
+		factory = new Factory(this);
+		factory.getSettingsSource().loadUserSettings();
 		
 		refresh();
 		
@@ -71,6 +69,6 @@ public class baseBallRadioActivity extends Activity {
 	}
 	
 	private void refresh() {
-		new LoadStationsTask(stationList, this).execute();
+		new LoadStationsTask(factory, this).execute();
 	}
 }

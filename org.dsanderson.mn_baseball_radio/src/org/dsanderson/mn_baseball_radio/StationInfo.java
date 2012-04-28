@@ -8,7 +8,7 @@ public class StationInfo {
 	String state = "";
 	String location = "";
 	long range = 0;
-	long distance = Integer.MAX_VALUE;
+	long distance = Long.MAX_VALUE;
 	
 	public void setCallsign(String callsign) {
 		this.callsign = callsign;
