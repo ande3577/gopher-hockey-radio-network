@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-    <PreferenceCategory android:title="Preference Category">
-        <EditTextPreference android:title="Preference" android:key="preference"/>
+    <PreferenceCategory android:title="Location Settings">
+        <CheckBoxPreference android:key="enableLocation" android:title="Enable Location" android:summary="Allow the application to access the phone's current location." android:defaultValue="true"/><EditTextPreference android:title="Default Location" android:key="defaultLocation" android:summary="Location to use if location settings are unavailable or disabled." android:defaultValue="Minneapolis, MN"/>
+        
         
     </PreferenceCategory>
     <PreferenceCategory android:title="Restore Defaults">

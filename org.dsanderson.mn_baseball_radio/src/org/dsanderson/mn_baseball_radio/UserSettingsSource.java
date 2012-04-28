@@ -1,0 +1,48 @@
+package org.dsanderson.mn_baseball_radio;
+
+import org.dsanderson.util.IUserSettingsSource;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.preference.PreferenceManager;
+
+public class UserSettingsSource implements IUserSettingsSource {
+	SharedPreferences preference;
+	final UserSettings settings;
+
+	public UserSettingsSource(Context context, UserSettings settings) {
+		preference = PreferenceManager.getDefaultSharedPreferences(context);
+		this.settings = settings;
+		preference
+				.registerOnSharedPreferenceChangeListener(preferenceChangedListener);
+	}
+
+	private OnSharedPreferenceChangeListener preferenceChangedListener = new OnSharedPreferenceChangeListener() {
+
+		public void onSharedPreferenceChanged(
+				SharedPreferences sharedPreferences, String key) {
+			if (key.equals("enableLocation")) {
+				boolean value = sharedPreferences.getBoolean(key,
+						settings.getLocationEnabled());
+				settings.setLocationEnabled(value);
+			} else if (key.equals("defaultLocation")) {
+				String locationString = sharedPreferences.getString(key,
+						settings.getDefaultLocation());
+				settings.setDefaultLocation(locationString);
+			}
+		}
+
+	};
+
+	public void loadUserSettings() {
+		settings.setLocationEnabled(preference.getBoolean("enableLocation",
+				settings.getLocationEnabled()));
+		settings.setDefaultLocation(preference.getString("defaultLocation",
+				settings.getDefaultLocation()));
+	}
+
+	public void saveUserSettings() {
+	}
+
+}

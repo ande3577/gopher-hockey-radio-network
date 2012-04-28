@@ -15,6 +15,10 @@ public class baseBallRadioActivity extends Activity {
 	@SuppressWarnings("unused")
 	private FileFactory file;
 	
+	private UserSettings settings;
+	
+	private UserSettingsSource userSettingsSource;
+	
 	StationList stationList = null;
 	
 	/** Called when the activity is first created. */
@@ -26,6 +30,8 @@ public class baseBallRadioActivity extends Activity {
 		file = new FileFactory(this);
 		
 		stationList = new StationList();
+		settings = new UserSettings();
+		userSettingsSource = new UserSettingsSource(this, settings);
 		
 		refresh();
 		

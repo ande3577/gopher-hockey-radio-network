@@ -18,8 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="org.dsanderson.android.PreferenceActivity"></activity>
-        <activity android:name=".AboutActivity"></activity>
+        <activity android:name="PreferenceActivity"></activity>
+        <activity android:name="AboutActivity"></activity>
     </application>
 
 </manifest>
