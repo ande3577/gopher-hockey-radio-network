@@ -12,11 +12,23 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 public class baseBallRadioActivity extends Activity {
+	@SuppressWarnings("unused")
+	private FileFactory file;
+	
+	StationList stationList = null;
+	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		
+		file = new FileFactory(this);
+		
+		stationList = new StationList();
+		
+		refresh();
+		
 	}
 
 	@Override
@@ -50,5 +62,9 @@ public class baseBallRadioActivity extends Activity {
 	private void openAbout() {
 		Intent i = new Intent(this, AboutActivity.class);
 		startActivity(i);
+	}
+	
+	private void refresh() {
+		new LoadStationsTask(stationList, this).execute();
 	}
 }

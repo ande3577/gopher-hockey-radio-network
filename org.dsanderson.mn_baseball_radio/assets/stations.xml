@@ -1,0 +1,11 @@
+<stationList>
+
+    <station
+        name="ESPN Radio"
+        callsign="KSTP"
+        city="Minneapolis / St. Paul"
+        frequency="1500 AM"
+        range="0"
+        state="MN" />
+    
+</stationList>
