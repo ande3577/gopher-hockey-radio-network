@@ -11,11 +11,9 @@ public class StationInfoParser {
 	private static final String STATION_LIST_TAG = "stationList";
 	private static final String STATION_TAG = "station";
 	private static final String CALLSIGN_TAG = "callsign";
-	private static final String NAME_TAG = "name";
 	private static final String FREQUENCY_TAG = "frequency";
 	private static final String CITY_TAG = "city";
 	private static final String STATE_TAG = "state";
-	private static final String RANGE_TAG = "range";
 	
 	private StationList stationList;
 	
@@ -39,16 +37,12 @@ public class StationInfoParser {
 			String parserOutput;
 			if ((parserOutput = parser.getValue(CALLSIGN_TAG)) != null)
 				info.setCallsign(parserOutput);
-			if ((parserOutput = parser.getValue(NAME_TAG)) != null)
-				info.setName(parserOutput);
 			if ((parserOutput = parser.getValue(FREQUENCY_TAG)) != null)
 				info.setFrequency(parserOutput);
 			if ((parserOutput = parser.getValue(CITY_TAG)) != null)
 				info.setCity(parserOutput);
 			if ((parserOutput = parser.getValue(STATE_TAG)) != null)
 				info.setState(parserOutput);
-			if ((parserOutput = parser.getValue(RANGE_TAG)) != null)
-				info.setRange(Long.parseLong(parserOutput));
 			
 			stationList.add(info);
 		}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="databaseVersion" type="integer">2</item>
+    <item name="databaseVersion" type="integer">3</item>
     <item name="queryCount" type="integer">5</item>
     
 </resources>

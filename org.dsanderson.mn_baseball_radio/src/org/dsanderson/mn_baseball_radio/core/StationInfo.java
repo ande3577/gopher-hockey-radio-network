@@ -4,12 +4,10 @@ import org.dsanderson.util.DatabaseObject;
 
 public class StationInfo extends DatabaseObject {
 	String callsign = "";
-	String name = "";
 	String frequency = "";
 	String city = "";
 	String state = "";
 	String location = "";
-	long range = 0;
 	long distance = Long.MAX_VALUE;
 	
 	public void setCallsign(String callsign) {
@@ -18,14 +16,6 @@ public class StationInfo extends DatabaseObject {
 	
 	public String getCallsign() {
 		return callsign;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getName() {
-		return name;
 	}
 	
 	public void setFrequency(String freqeuency) {
@@ -58,14 +48,6 @@ public class StationInfo extends DatabaseObject {
 	
 	public String getLocation() {
 		return location;
-	}
-	
-	public void setRange(long range) {
-		this.range = range;
-	}
-	
-	public long getRange() {
-		return range;
 	}
 	
 	public void setDistance(long distance) {
