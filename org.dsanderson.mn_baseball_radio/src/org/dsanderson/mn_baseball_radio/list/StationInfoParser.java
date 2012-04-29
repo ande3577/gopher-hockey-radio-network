@@ -1,9 +1,10 @@
-package org.dsanderson.mn_baseball_radio;
+package org.dsanderson.mn_baseball_radio.list;
 
 import java.io.Reader;
 import java.util.List;
 
 import org.dsanderson.android.util.CompoundXmlPullParserFactory;
+import org.dsanderson.mn_baseball_radio.core.StationInfo;
 import org.dsanderson.util.CompoundXmlParser;
 
 public class StationInfoParser {

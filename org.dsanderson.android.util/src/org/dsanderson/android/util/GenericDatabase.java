@@ -163,6 +163,11 @@ public class GenericDatabase extends SQLiteOpenHelper {
 				null, sortOrder);
 	}
 
+	public Cursor getCursorWithCount(int Count) {
+		return database.query(tableName, columnArray, filterString, null, null,
+				null, sortOrder, Integer.toString(Count));
+	}
+
 	public Cursor getCursorById(long id) {
 		Cursor cursor = database.query(tableName, columnArray, COLUMN_ID
 				+ " = " + id, null, null, null, null);

@@ -1,5 +1,6 @@
 package org.dsanderson.mn_baseball_radio;
 
+import org.dsanderson.mn_baseball_radio.core.UserSettings;
 import org.dsanderson.util.IUserSettingsSource;
 
 import android.content.Context;

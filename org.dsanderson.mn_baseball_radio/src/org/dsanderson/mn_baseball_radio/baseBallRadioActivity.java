@@ -4,35 +4,32 @@ import org.dsanderson.mn_baseball_radio.AboutActivity;
 import org.dsanderson.mn_baseball_radio.PreferenceActivity;
 import org.dsanderson.mn_baseball_radio.R;
 
-import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-public class baseBallRadioActivity extends Activity {
+public class baseBallRadioActivity extends ListActivity {
 	@SuppressWarnings("unused")
 	private FileFactory file;
-	
+
 	private Factory factory;
-	
-	StationList stationList = null;
-	
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
-		
+
 		file = new FileFactory(this);
-		
-		stationList = new StationList();
-		factory = new Factory(this);
+
+		factory = new Factory(this, getResources().getInteger(
+				R.integer.databaseVersion));
 		factory.getSettingsSource().loadUserSettings();
 		
 		refresh();
-		
+
 	}
 
 	@Override
@@ -67,7 +64,7 @@ public class baseBallRadioActivity extends Activity {
 		Intent i = new Intent(this, AboutActivity.class);
 		startActivity(i);
 	}
-	
+
 	private void refresh() {
 		new LoadStationsTask(factory, this).execute();
 	}

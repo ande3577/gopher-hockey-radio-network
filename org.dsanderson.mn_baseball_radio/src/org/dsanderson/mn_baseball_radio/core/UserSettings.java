@@ -1,4 +1,4 @@
-package org.dsanderson.mn_baseball_radio;
+package org.dsanderson.mn_baseball_radio.core;
 
 public class UserSettings {
 	boolean locationEnabled = false;

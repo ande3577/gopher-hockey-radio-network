@@ -2,6 +2,7 @@ package org.dsanderson.mn_baseball_radio;
 
 import org.dsanderson.android.util.LocationCoder;
 import org.dsanderson.android.util.LocationSource;
+import org.dsanderson.mn_baseball_radio.core.UserSettings;
 import org.dsanderson.util.ILocationSource;
 
 import android.content.Context;

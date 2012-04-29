@@ -2,7 +2,10 @@ package org.dsanderson.mn_baseball_radio;
 
 import org.dsanderson.android.util.Dialog;
 import org.dsanderson.android.util.LocationCoder;
+import org.dsanderson.mn_baseball_radio.core.StationInfo;
+import org.dsanderson.mn_baseball_radio.list.StationList;
 import org.dsanderson.util.IDistanceSource;
+import org.dsanderson.util.Units;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -33,6 +36,8 @@ public class LoadStationsTask extends AsyncTask<Integer, Integer, Integer> {
 			e.printStackTrace();
 			Dialog dialog = new Dialog(context, e);
 			dialog.show();
+		} else {
+			factory.getPrinter().print();
 		}
 	}
 
@@ -54,9 +59,15 @@ public class LoadStationsTask extends AsyncTask<Integer, Integer, Integer> {
 				distanceSource.updateDistance(location, stationLocation, null);
 				boolean valid = distanceSource.getDistanceValids().get(0);
 				if (valid)
-					info.setDistance(distanceSource.getDistances().get(0));
+					info.setDistance((long) Units.metersToMiles(distanceSource
+							.getDistances().get(0)));
 				else
 					info.setDistance(Long.MAX_VALUE);
+
+				if (list.find(info.getCallsign()) != null)
+					list.update(info);
+				else
+					list.add(info);
 			}
 		} catch (Exception e) {
 			this.e = e;

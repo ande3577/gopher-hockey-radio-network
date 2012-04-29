@@ -1,6 +1,8 @@
-package org.dsanderson.mn_baseball_radio;
+package org.dsanderson.mn_baseball_radio.core;
 
-public class StationInfo {
+import org.dsanderson.util.DatabaseObject;
+
+public class StationInfo extends DatabaseObject {
 	String callsign = "";
 	String name = "";
 	String frequency = "";
