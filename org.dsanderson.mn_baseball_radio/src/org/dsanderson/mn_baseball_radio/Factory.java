@@ -81,5 +81,5 @@ public class Factory {
 	AndroidProgressBar getProgressBar() {
 		return progressBar;
 	}
-
+	
 }

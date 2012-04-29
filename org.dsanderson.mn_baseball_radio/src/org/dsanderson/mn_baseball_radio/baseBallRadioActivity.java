@@ -27,7 +27,7 @@ public class baseBallRadioActivity extends ListActivity {
 		factory = new Factory(this, getResources().getInteger(
 				R.integer.databaseVersion));
 		factory.getSettingsSource().loadUserSettings();
-		
+
 		refresh();
 
 	}
@@ -47,6 +47,9 @@ public class baseBallRadioActivity extends ListActivity {
 			return true;
 		case R.id.about:
 			openAbout();
+			return true;
+		case R.id.refresh:
+			refresh();
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

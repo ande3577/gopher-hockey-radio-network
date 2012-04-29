@@ -5,6 +5,7 @@ import org.dsanderson.android.util.Dialog;
 import org.dsanderson.android.util.LocationCoder;
 import org.dsanderson.mn_baseball_radio.core.StationInfo;
 import org.dsanderson.mn_baseball_radio.list.StationList;
+import org.dsanderson.mn_baseball_radio.list.StationListDataBaseObjectFactory;
 import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.util.Units;
 
@@ -62,7 +63,8 @@ public class LoadStationsTask extends AsyncTask<Integer, Integer, Integer> {
 					stationLocation = locationCoder.getLocation(info.getCity()
 							+ ", " + info.getState()).location;
 
-				distanceSource.updateDistance(location, stationLocation, progressBar);
+				distanceSource.updateDistance(location, stationLocation,
+						progressBar);
 				boolean valid = distanceSource.getDistanceValids().get(0);
 				if (valid)
 					info.setDistance((long) Units.metersToMiles(distanceSource
@@ -70,10 +72,13 @@ public class LoadStationsTask extends AsyncTask<Integer, Integer, Integer> {
 				else
 					info.setDistance(Long.MAX_VALUE);
 
-				if (list.find(info.getCallsign()) != null)
-					list.update(info);
-				else
+				if (list.find(info.getCallsign()) != null) {
+					list.update(info,
+							StationListDataBaseObjectFactory.COLUMN_DISTANCE,
+							info.getDistance());
+				} else {
 					list.add(info);
+				}
 			}
 		} catch (Exception e) {
 			this.e = e;
