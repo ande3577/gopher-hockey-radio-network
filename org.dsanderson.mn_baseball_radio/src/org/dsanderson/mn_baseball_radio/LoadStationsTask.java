@@ -19,6 +19,7 @@ public class LoadStationsTask extends AsyncTask<Integer, Integer, Integer> {
 	private final Context context;
 	LocationCoder locationCoder = null;
 	AndroidProgressBar progressBar = null;
+	boolean refresh = true;
 
 	public LoadStationsTask(Factory factory, Context context) {
 		this.factory = factory;
@@ -28,12 +29,18 @@ public class LoadStationsTask extends AsyncTask<Integer, Integer, Integer> {
 		progressBar = factory.getProgressBar();
 	}
 
+	public void setRefresh(boolean refresh) {
+		this.refresh = refresh;
+	}
+
 	@Override
 	protected void onPreExecute() {
 		e = null;
-		factory.getLocationSource().updateLocation();
-		progressBar.setMessage("Loading stations...");
-		progressBar.show();
+		if (refresh) {
+			factory.getLocationSource().updateLocation();
+			progressBar.setMessage("Loading stations...");
+			progressBar.show();
+		}
 	}
 
 	@Override
@@ -51,33 +58,38 @@ public class LoadStationsTask extends AsyncTask<Integer, Integer, Integer> {
 	@Override
 	protected Integer doInBackground(Integer... params) {
 		try {
-			list.load();
+			if (refresh) {
+				list.load();
 
-			String location = factory.getLocationSource().getLocation();
-			IDistanceSource distanceSource = factory.getDistanceSource();
+				String location = factory.getLocationSource().getLocation();
+				IDistanceSource distanceSource = factory.getDistanceSource();
 
-			for (int i = 0; i < list.size(); i++) {
-				StationInfo info = list.get(i);
-				String stationLocation = info.getLocation();
-				if (stationLocation == null || stationLocation.length() == 0)
-					stationLocation = locationCoder.getLocation(info.getCity()
-							+ ", " + info.getState()).location;
+				for (int i = 0; i < list.size(); i++) {
+					StationInfo info = list.get(i);
+					String stationLocation = info.getLocation();
+					if (stationLocation == null
+							|| stationLocation.length() == 0)
+						stationLocation = locationCoder.getLocation(info
+								.getCity() + ", " + info.getState()).location;
 
-				distanceSource.updateDistance(location, stationLocation,
-						progressBar);
-				boolean valid = distanceSource.getDistanceValids().get(0);
-				if (valid)
-					info.setDistance((long) Units.metersToMiles(distanceSource
-							.getDistances().get(0)));
-				else
-					info.setDistance(Long.MAX_VALUE);
+					distanceSource.updateDistance(location, stationLocation,
+							progressBar);
+					boolean valid = distanceSource.getDistanceValids().get(0);
+					if (valid)
+						info.setDistance((long) Units
+								.metersToMiles(distanceSource.getDistances()
+										.get(0)));
+					else
+						info.setDistance(Long.MAX_VALUE);
 
-				if (list.find(info.getCallsign()) != null) {
-					list.update(info,
-							StationListDataBaseObjectFactory.COLUMN_DISTANCE,
-							info.getDistance());
-				} else {
-					list.add(info);
+					if (list.find(info.getCallsign()) != null) {
+						list.update(
+								info,
+								StationListDataBaseObjectFactory.COLUMN_DISTANCE,
+								info.getDistance());
+					} else {
+						list.add(info);
+					}
 				}
 			}
 		} catch (Exception e) {
