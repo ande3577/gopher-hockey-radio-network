@@ -60,11 +60,14 @@ public class LoadStationsTask extends AsyncTask<Integer, Integer, Integer> {
 			IDistanceSource distanceSource = factory.getDistanceSource();
 
 			for (int i = 0; i < list.size(); i++) {
+				boolean newLocation = false;
 				StationInfo info = list.get(i);
 				String stationLocation = info.getLocation();
-				if (stationLocation == null || stationLocation.length() == 0)
+				if (stationLocation == null || stationLocation.length() == 0) {
 					stationLocation = locationCoder.getLocation(info.getCity()
 							+ ", " + info.getState()).location;
+					newLocation = true;
+				}
 
 				distanceSource.updateDistance(location, stationLocation,
 						progressBar);
@@ -76,9 +79,21 @@ public class LoadStationsTask extends AsyncTask<Integer, Integer, Integer> {
 					info.setDistance(Long.MAX_VALUE);
 
 				if (list.find(info.getCallsign()) != null) {
-					list.update(info,
-							StationListDataBaseObjectFactory.COLUMN_DISTANCE,
-							info.getDistance());
+					if (newLocation) {
+						list.update(
+								info,
+								new String[] {
+										StationListDataBaseObjectFactory.COLUMN_LOCATION,
+										StationListDataBaseObjectFactory.COLUMN_DISTANCE },
+								new String[] { stationLocation,
+										Long.toString(info.getDistance()) });
+
+					} else {
+						list.update(
+								info,
+								StationListDataBaseObjectFactory.COLUMN_DISTANCE,
+								info.getDistance());
+					}
 				} else {
 					list.add(info);
 				}

@@ -25,7 +25,6 @@ import java.util.List;
 import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.util.IProgressBar;
 
-import android.location.Location;
 
 /**
  * 
@@ -49,26 +48,39 @@ public class QuickDistanceSource implements IDistanceSource {
 	 */
 	public void updateDistances(String src, List<String> dests,
 			IProgressBar progressBar) throws Exception {
-		
+
 		distances.clear();
 		distanceValids.clear();
 		durations.clear();
 		durationValids.clear();
-		
+
 		if (src.length() == 0 || getMaxStringLength(dests) == 0)
 			return;
 
 		String srcCoords[] = src.split("\\,");
+		if (srcCoords.length != 2)
+			throw new Exception("Invalid source: " + src);
+		double srcLat = Double.parseDouble(srcCoords[0]);
+		double srcLong = Double.parseDouble(srcCoords[1]);
 
 		for (String dest : dests) {
 			String destCoords[] = dest.split("\\,");
-			if (srcCoords.length == 2 && destCoords.length == 2) {
-				float distance[] = { 0 };
-				Location.distanceBetween(Double.parseDouble(srcCoords[0]),
-						Double.parseDouble(srcCoords[1]),
-						Double.parseDouble(destCoords[0]),
-						Double.parseDouble(destCoords[1]), distance);
-				distances.add((int) distance[0]);
+			if (destCoords.length == 2) {
+				double destLat = Double.parseDouble(destCoords[0]);
+				double destLong = Double.parseDouble(destCoords[1]);
+
+				double R = 6371 * 1000; // m
+				double dLat = Math.toRadians(destLat - srcLat);
+				double dLon = Math.toRadians(destLong - srcLong);
+				double lat1 = Math.toRadians(srcLat);
+				double lat2 = Math.toRadians(destLat);
+
+				double a = Math.sin(dLat / 2) * Math.sin(dLat / 2)
+						+ Math.sin(dLon / 2) * Math.sin(dLon / 2)
+						* Math.cos(lat1) * Math.cos(lat2);
+				double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+				double d = R * c;
+				distances.add((int) d);
 				distanceValids.add(true);
 			} else {
 				distances.add(0);
@@ -123,7 +135,7 @@ public class QuickDistanceSource implements IDistanceSource {
 		}
 		return length;
 	}
-	
+
 	public void updateDistance(String src, String dest, IProgressBar progressBar)
 			throws Exception {
 		List<String> dests = new ArrayList<String>();

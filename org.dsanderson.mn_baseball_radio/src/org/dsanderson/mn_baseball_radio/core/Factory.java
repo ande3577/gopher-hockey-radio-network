@@ -1,13 +1,14 @@
 package org.dsanderson.mn_baseball_radio.core;
 
 import org.dsanderson.android.util.AndroidProgressBar;
+import org.dsanderson.android.util.CompoundLocationSource;
 import org.dsanderson.android.util.QuickDistanceSource;
 import org.dsanderson.mn_baseball_radio.StationInfoPrinter;
 import org.dsanderson.mn_baseball_radio.UserSettingsSource;
 import org.dsanderson.mn_baseball_radio.list.StationList;
 import org.dsanderson.mn_baseball_radio.list.StationListDataBaseObjectFactory;
+import org.dsanderson.util.ICompoundLocationSource;
 import org.dsanderson.util.IDistanceSource;
-import org.dsanderson.util.ILocationSource;
 
 import android.app.ListActivity;
 import android.content.Context;
@@ -16,7 +17,7 @@ public class Factory {
 	final Context context;
 	UserSettings settings = null;
 	UserSettingsSource settingsSource = null;
-	ILocationSource locationSource = null;
+	CompoundLocationSource locationSource = null;
 	StationListDataBaseObjectFactory objectFactory = null;
 	StationList stationList = null;
 	IDistanceSource distanceSource = null;
@@ -29,8 +30,9 @@ public class Factory {
 		assert (instance == null);
 		this.context = context;
 		settings = new UserSettings();
-		settingsSource = new UserSettingsSource(context, settings);
-		locationSource = new CompoundLocationSource(settings, context);
+		locationSource = new CompoundLocationSource(context, true,
+				"Minneapolis, MN");
+		settingsSource = new UserSettingsSource(context, this);
 		objectFactory = new StationListDataBaseObjectFactory();
 		stationList = new StationList(context, objectFactory, databaseVersion);
 		try {
@@ -56,7 +58,7 @@ public class Factory {
 		return settingsSource;
 	}
 
-	public ILocationSource getLocationSource() {
+	public ICompoundLocationSource getLocationSource() {
 		return locationSource;
 	}
 
@@ -67,13 +69,13 @@ public class Factory {
 	public IDistanceSource getDistanceSource() {
 		return distanceSource;
 	}
-	
+
 	public StationInfoPrinter getPrinter() {
 		return printer;
 	}
-	
+
 	public AndroidProgressBar getProgressBar() {
 		return progressBar;
 	}
-	
+
 }

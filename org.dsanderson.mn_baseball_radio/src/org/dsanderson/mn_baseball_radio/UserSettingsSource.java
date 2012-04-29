@@ -1,6 +1,8 @@
 package org.dsanderson.mn_baseball_radio;
 
+import org.dsanderson.mn_baseball_radio.core.Factory;
 import org.dsanderson.mn_baseball_radio.core.UserSettings;
+import org.dsanderson.util.ICompoundLocationSource;
 import org.dsanderson.util.IUserSettingsSource;
 
 import android.content.Context;
@@ -11,10 +13,12 @@ import android.preference.PreferenceManager;
 public class UserSettingsSource implements IUserSettingsSource {
 	SharedPreferences preference;
 	final UserSettings settings;
+	final ICompoundLocationSource locationSource;
 
-	public UserSettingsSource(Context context, UserSettings settings) {
+	public UserSettingsSource(Context context, Factory factory) {
 		preference = PreferenceManager.getDefaultSharedPreferences(context);
-		this.settings = settings;
+		this.settings = factory.getSettings();
+		this.locationSource = factory.getLocationSource();
 		preference
 				.registerOnSharedPreferenceChangeListener(preferenceChangedListener);
 	}
@@ -25,12 +29,12 @@ public class UserSettingsSource implements IUserSettingsSource {
 				SharedPreferences sharedPreferences, String key) {
 			if (key.equals("enableLocation")) {
 				boolean value = sharedPreferences.getBoolean(key,
-						settings.getLocationEnabled());
-				settings.setLocationEnabled(value);
+						locationSource.getLocationEnabled());
+				locationSource.setLocationEnabled(value);
 			} else if (key.equals("defaultLocation")) {
 				String locationString = sharedPreferences.getString(key,
-						settings.getDefaultLocation());
-				settings.setDefaultLocation(locationString);
+						locationSource.getDefaultLocation());
+				locationSource.setDefaultLocation(locationString);
 			} else if (key.equals("queryCount")) {
 				settings.setQueryCount(Integer.parseInt(preference.getString(
 						"queryCount",
@@ -41,10 +45,10 @@ public class UserSettingsSource implements IUserSettingsSource {
 	};
 
 	public void loadUserSettings() {
-		settings.setLocationEnabled(preference.getBoolean("enableLocation",
-				settings.getLocationEnabled()));
-		settings.setDefaultLocation(preference.getString("defaultLocation",
-				settings.getDefaultLocation()));
+		locationSource.setLocationEnabled(preference.getBoolean(
+				"enableLocation", locationSource.getLocationEnabled()));
+		locationSource.setDefaultLocation(preference.getString(
+				"defaultLocation", locationSource.getDefaultLocation()));
 		settings.setQueryCount(Integer.parseInt(preference.getString(
 				"queryCount", Integer.toString(settings.getQueryCount()))));
 	}
