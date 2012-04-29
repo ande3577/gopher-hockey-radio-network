@@ -49,6 +49,12 @@ public class QuickDistanceSource implements IDistanceSource {
 	 */
 	public void updateDistances(String src, List<String> dests,
 			IProgressBar progressBar) throws Exception {
+		
+		distances.clear();
+		distanceValids.clear();
+		durations.clear();
+		durationValids.clear();
+		
 		if (src.length() == 0 || getMaxStringLength(dests) == 0)
 			return;
 

@@ -37,6 +37,7 @@ public class StationInfoPrinter {
 				R.id.cityView, R.id.stateView, R.id.distanceView };
 		Cursor cursor = list.getCursorWithCount(queryCount);
 		
+		/**
 		int size = cursor.getCount();
 		List<StationInfo> infoList = new ArrayList<StationInfo>();
 		cursor.moveToFirst();
@@ -44,6 +45,7 @@ public class StationInfoPrinter {
 			infoList.add((StationInfo) list.get(cursor));
 			cursor.moveToNext();
 		}
+		*/
 
 		context.setListAdapter(new SimpleCursorAdapter(context, R.layout.row,
 				cursor, from, to));

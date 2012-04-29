@@ -68,7 +68,7 @@ public class StationList extends GenericDatabase implements IList<StationInfo> {
 
 	public void sort() {
 		clearSortOrder();
-		addSortOrder(StationListDataBaseObjectFactory.COLUMN_DISTANCE, false);
+		addSortOrder(StationListDataBaseObjectFactory.COLUMN_DISTANCE, true);
 	}
 
 	public void filter() {
