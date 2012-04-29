@@ -39,10 +39,9 @@ public class StationList extends GenericDatabase implements IList<StationInfo> {
 
 	public void load() throws Exception {
 		super.load();
-		
+
 		if (size() == 0) {
-			StationInfoParser parser = new StationInfoParser(this);
-			parser.parse(FileFactory.getInstance().getStationInfoReader());
+			StationInfoScanner.scan(FileFactory.getInstance().getStationInfoReader(), this);
 		}
 	}
 

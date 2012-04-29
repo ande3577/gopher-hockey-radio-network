@@ -24,7 +24,7 @@ public class FileFactory {
 	}
 	
 	public Reader getStationInfoReader() throws IOException {
-		InputStream stream = context.getAssets().open("stations.xml");
+		InputStream stream = context.getAssets().open("stations.txt");
 		BufferedReader reader = new BufferedReader(
 				new InputStreamReader(stream));
 		return reader;

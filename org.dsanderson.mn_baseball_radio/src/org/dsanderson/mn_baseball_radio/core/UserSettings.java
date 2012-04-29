@@ -2,7 +2,7 @@ package org.dsanderson.mn_baseball_radio.core;
 
 public class UserSettings {
 	boolean locationEnabled = false;
-	String defaultLocation = "";
+	String defaultLocation = "Minneapolis, MN";
 	
 	public void setLocationEnabled(boolean locationEnabled) {
 		this.locationEnabled = locationEnabled;

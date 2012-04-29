@@ -28,12 +28,11 @@ public class StationInfoPrinter {
 		int queryCount = context.getResources()
 				.getInteger(R.integer.queryCount);
 		String from[] = { StationListDataBaseObjectFactory.COLUMN_CALLSIGN,
-				StationListDataBaseObjectFactory.COLUMN_NAME,
 				StationListDataBaseObjectFactory.COLUMN_FREQUENCY,
 				StationListDataBaseObjectFactory.COLUMN_CITY,
 				StationListDataBaseObjectFactory.COLUMN_STATE,
 				StationListDataBaseObjectFactory.COLUMN_DISTANCE };
-		int to[] = { R.id.callsignView, R.id.nameView, R.id.frequencyView,
+		int to[] = { R.id.callsignView, R.id.frequencyView,
 				R.id.cityView, R.id.stateView, R.id.distanceView };
 		Cursor cursor = list.getCursorWithCount(queryCount);
 		
