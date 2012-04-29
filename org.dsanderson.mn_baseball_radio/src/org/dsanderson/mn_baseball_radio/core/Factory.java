@@ -4,7 +4,6 @@ import org.dsanderson.android.util.AndroidProgressBar;
 import org.dsanderson.android.util.QuickDistanceSource;
 import org.dsanderson.mn_baseball_radio.StationInfoPrinter;
 import org.dsanderson.mn_baseball_radio.UserSettingsSource;
-import org.dsanderson.mn_baseball_radio.list.StationInfoParser;
 import org.dsanderson.mn_baseball_radio.list.StationList;
 import org.dsanderson.mn_baseball_radio.list.StationListDataBaseObjectFactory;
 import org.dsanderson.util.IDistanceSource;
@@ -20,7 +19,6 @@ public class Factory {
 	ILocationSource locationSource = null;
 	StationListDataBaseObjectFactory objectFactory = null;
 	StationList stationList = null;
-	StationInfoParser stationInfoParser = null;
 	IDistanceSource distanceSource = null;
 	StationInfoPrinter printer = null;
 	AndroidProgressBar progressBar = null;
@@ -40,7 +38,6 @@ public class Factory {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		stationInfoParser = new StationInfoParser(stationList);
 		distanceSource = new QuickDistanceSource();
 		printer = new StationInfoPrinter(this, context);
 		progressBar = new AndroidProgressBar(context);
@@ -65,10 +62,6 @@ public class Factory {
 
 	public StationList getStationList() {
 		return stationList;
-	}
-
-	public StationInfoParser getStationInfoParser() {
-		return stationInfoParser;
 	}
 
 	public IDistanceSource getDistanceSource() {
