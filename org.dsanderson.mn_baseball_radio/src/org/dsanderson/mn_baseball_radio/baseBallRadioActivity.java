@@ -28,8 +28,10 @@ public class baseBallRadioActivity extends ListActivity {
 				R.integer.databaseVersion));
 		factory.getSettingsSource().loadUserSettings();
 
-		refresh(savedInstanceState == null);
-
+		if (savedInstanceState == null)
+			refresh();
+		else
+			factory.getPrinter().print();
 	}
 
 	@Override
@@ -49,7 +51,7 @@ public class baseBallRadioActivity extends ListActivity {
 			openAbout();
 			return true;
 		case R.id.refresh:
-			refresh(true);
+			refresh();
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
@@ -68,9 +70,7 @@ public class baseBallRadioActivity extends ListActivity {
 		startActivity(i);
 	}
 
-	private void refresh(boolean reload) {
-		LoadStationsTask task = new LoadStationsTask(factory, this);
-		task.setRefresh(reload);
-		task.execute();
+	private void refresh() {
+		new LoadStationsTask(factory, this).execute();
 	}
 }
