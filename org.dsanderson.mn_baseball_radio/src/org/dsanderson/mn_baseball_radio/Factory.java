@@ -1,5 +1,6 @@
 package org.dsanderson.mn_baseball_radio;
 
+import org.dsanderson.android.util.AndroidProgressBar;
 import org.dsanderson.android.util.QuickDistanceSource;
 import org.dsanderson.mn_baseball_radio.core.UserSettings;
 import org.dsanderson.mn_baseball_radio.list.StationInfoParser;
@@ -21,6 +22,7 @@ public class Factory {
 	StationInfoParser stationInfoParser = null;
 	IDistanceSource distanceSource = null;
 	StationInfoPrinter printer = null;
+	AndroidProgressBar progressBar = null;
 
 	Factory instance = null;
 
@@ -40,6 +42,7 @@ public class Factory {
 		stationInfoParser = new StationInfoParser(stationList);
 		distanceSource = new QuickDistanceSource();
 		printer = new StationInfoPrinter(this, context);
+		progressBar = new AndroidProgressBar(context);
 	}
 
 	Factory getInstance() {
@@ -73,6 +76,10 @@ public class Factory {
 	
 	StationInfoPrinter getPrinter() {
 		return printer;
+	}
+	
+	AndroidProgressBar getProgressBar() {
+		return progressBar;
 	}
 
 }

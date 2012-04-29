@@ -13,15 +13,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/callsignSeparator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/callsignView"
-        android:text=" - "
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
         android:id="@+id/distanceUnitsView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,8 +34,8 @@
         android:id="@+id/frequencyView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/distanceView"
-        android:layout_toRightOf="@+id/callsignSeparator"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/distanceView"
         android:text="Frequency"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -53,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/callsignView"
+        android:layout_below="@+id/frequencyView"
         android:text="City"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
