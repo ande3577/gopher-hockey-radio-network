@@ -1,4 +1,4 @@
-package org.dsanderson.mn_baseball_radio;
+package org.dsanderson.mn_baseball_radio.core;
 
 import java.io.BufferedReader;
 import java.io.IOException;

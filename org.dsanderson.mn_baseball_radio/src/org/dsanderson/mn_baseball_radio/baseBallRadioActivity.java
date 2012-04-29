@@ -3,6 +3,8 @@ package org.dsanderson.mn_baseball_radio;
 import org.dsanderson.mn_baseball_radio.AboutActivity;
 import org.dsanderson.mn_baseball_radio.PreferenceActivity;
 import org.dsanderson.mn_baseball_radio.R;
+import org.dsanderson.mn_baseball_radio.core.Factory;
+import org.dsanderson.mn_baseball_radio.core.FileFactory;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -30,8 +32,6 @@ public class baseBallRadioActivity extends ListActivity {
 
 		if (savedInstanceState == null)
 			refresh();
-		else
-			factory.getPrinter().print();
 	}
 
 	@Override
@@ -72,5 +72,11 @@ public class baseBallRadioActivity extends ListActivity {
 
 	private void refresh() {
 		new LoadStationsTask(factory, this).execute();
+	}
+	
+	@Override
+	public void onWindowFocusChanged (boolean hasFocus) {
+		if (hasFocus)
+			factory.getPrinter().print();
 	}
 }

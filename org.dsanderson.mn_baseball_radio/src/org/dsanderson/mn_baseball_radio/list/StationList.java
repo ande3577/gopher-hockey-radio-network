@@ -3,7 +3,7 @@ package org.dsanderson.mn_baseball_radio.list;
 import java.util.Date;
 
 import org.dsanderson.android.util.GenericDatabase;
-import org.dsanderson.mn_baseball_radio.FileFactory;
+import org.dsanderson.mn_baseball_radio.core.FileFactory;
 import org.dsanderson.mn_baseball_radio.core.StationInfo;
 import org.dsanderson.util.IList;
 

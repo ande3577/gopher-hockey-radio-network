@@ -4,10 +4,13 @@
         <CheckBoxPreference android:key="enableLocation" android:title="Enable Location" android:summary="Allow the application to access the phone's current location." android:defaultValue="true"/><EditTextPreference android:title="Default Location" android:key="defaultLocation" android:summary="Location to use if location settings are unavailable or disabled." android:defaultValue="Minneapolis, MN"/>
         
         
+    </PreferenceCategory><PreferenceCategory android:title="Result Settings">
+        <EditTextPreference android:summary="Number of stations to display after query." android:key="queryCount" android:title="Station Count" android:defaultValue="@integer/queryCount" android:numeric="integer" android:inputType="number"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="Restore Defaults">
         <Preference android:summary="Restore all values to factory settings" android:key="restoreDefaults" android:title="Restore Defaults"/>
     </PreferenceCategory>
+    
     
 
 </PreferenceScreen>

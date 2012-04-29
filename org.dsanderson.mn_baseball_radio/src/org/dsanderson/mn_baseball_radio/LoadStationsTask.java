@@ -3,6 +3,7 @@ package org.dsanderson.mn_baseball_radio;
 import org.dsanderson.android.util.AndroidProgressBar;
 import org.dsanderson.android.util.Dialog;
 import org.dsanderson.android.util.LocationCoder;
+import org.dsanderson.mn_baseball_radio.core.Factory;
 import org.dsanderson.mn_baseball_radio.core.StationInfo;
 import org.dsanderson.mn_baseball_radio.list.StationList;
 import org.dsanderson.mn_baseball_radio.list.StationListDataBaseObjectFactory;
@@ -10,7 +11,6 @@ import org.dsanderson.util.IDistanceSource;
 import org.dsanderson.util.Units;
 
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
@@ -47,8 +47,6 @@ public class LoadStationsTask extends AsyncTask<Integer, Integer, Integer> {
 			e.printStackTrace();
 			Dialog dialog = new Dialog(context, e);
 			dialog.show();
-		} else {
-			factory.getPrinter().print();
 		}
 		UnlockScreenRotation();
 	}

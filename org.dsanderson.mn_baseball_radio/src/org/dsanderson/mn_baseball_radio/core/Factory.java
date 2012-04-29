@@ -1,8 +1,9 @@
-package org.dsanderson.mn_baseball_radio;
+package org.dsanderson.mn_baseball_radio.core;
 
 import org.dsanderson.android.util.AndroidProgressBar;
 import org.dsanderson.android.util.QuickDistanceSource;
-import org.dsanderson.mn_baseball_radio.core.UserSettings;
+import org.dsanderson.mn_baseball_radio.StationInfoPrinter;
+import org.dsanderson.mn_baseball_radio.UserSettingsSource;
 import org.dsanderson.mn_baseball_radio.list.StationInfoParser;
 import org.dsanderson.mn_baseball_radio.list.StationList;
 import org.dsanderson.mn_baseball_radio.list.StationListDataBaseObjectFactory;
@@ -45,40 +46,40 @@ public class Factory {
 		progressBar = new AndroidProgressBar(context);
 	}
 
-	Factory getInstance() {
+	public Factory getInstance() {
 		assert (instance != null);
 		return instance;
 	}
 
-	UserSettings getSettings() {
+	public UserSettings getSettings() {
 		return settings;
 	}
 
-	UserSettingsSource getSettingsSource() {
+	public UserSettingsSource getSettingsSource() {
 		return settingsSource;
 	}
 
-	ILocationSource getLocationSource() {
+	public ILocationSource getLocationSource() {
 		return locationSource;
 	}
 
-	StationList getStationList() {
+	public StationList getStationList() {
 		return stationList;
 	}
 
-	StationInfoParser getStationInfoParser() {
+	public StationInfoParser getStationInfoParser() {
 		return stationInfoParser;
 	}
 
-	IDistanceSource getDistanceSource() {
+	public IDistanceSource getDistanceSource() {
 		return distanceSource;
 	}
 	
-	StationInfoPrinter getPrinter() {
+	public StationInfoPrinter getPrinter() {
 		return printer;
 	}
 	
-	AndroidProgressBar getProgressBar() {
+	public AndroidProgressBar getProgressBar() {
 		return progressBar;
 	}
 	

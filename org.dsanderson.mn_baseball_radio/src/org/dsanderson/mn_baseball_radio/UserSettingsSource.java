@@ -31,6 +31,10 @@ public class UserSettingsSource implements IUserSettingsSource {
 				String locationString = sharedPreferences.getString(key,
 						settings.getDefaultLocation());
 				settings.setDefaultLocation(locationString);
+			} else if (key.equals("queryCount")) {
+				settings.setQueryCount(Integer.parseInt(preference.getString(
+						"queryCount",
+						Integer.toString(settings.getQueryCount()))));
 			}
 		}
 
@@ -41,6 +45,8 @@ public class UserSettingsSource implements IUserSettingsSource {
 				settings.getLocationEnabled()));
 		settings.setDefaultLocation(preference.getString("defaultLocation",
 				settings.getDefaultLocation()));
+		settings.setQueryCount(Integer.parseInt(preference.getString(
+				"queryCount", Integer.toString(settings.getQueryCount()))));
 	}
 
 	public void saveUserSettings() {
