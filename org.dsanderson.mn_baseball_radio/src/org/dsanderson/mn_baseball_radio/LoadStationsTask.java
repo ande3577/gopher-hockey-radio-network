@@ -59,6 +59,8 @@ public class LoadStationsTask extends AsyncTask<Integer, Integer, Integer> {
 			String location = factory.getLocationSource().getLocation();
 			IDistanceSource distanceSource = factory.getDistanceSource();
 
+			list.beginTransaction();	
+			
 			for (int i = 0; i < list.size(); i++) {
 				boolean newLocation = false;
 				StationInfo info = list.get(i);
@@ -98,7 +100,11 @@ public class LoadStationsTask extends AsyncTask<Integer, Integer, Integer> {
 					list.add(info);
 				}
 			}
+			
+			list.endTransaction();
+			
 		} catch (Exception e) {
+			list.cancelTransaction();
 			this.e = e;
 		}
 
