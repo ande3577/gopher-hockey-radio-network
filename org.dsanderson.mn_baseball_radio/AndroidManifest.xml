@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.dsanderson.mn_baseball_radio"
     android:versionCode="2"
-    android:versionName="0.0.2" >
+    android:versionName="0.0.3" >
 
     <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="7"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
