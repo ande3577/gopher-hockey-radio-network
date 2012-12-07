@@ -17,9 +17,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.dsanderson.mn_baseball_radio;
+package org.dsanderson.gopher_hockey_radio;
 
-import org.dsanderson.mn_baseball_radio.R;
+import org.dsanderson.gopher_hockey_radio.R;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;

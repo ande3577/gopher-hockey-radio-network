@@ -1,4 +1,4 @@
-package org.dsanderson.mn_baseball_radio;
+package org.dsanderson.gopher_hockey_radio;
 
 import org.dsanderson.android.util.AndroidProgressBar;
 import org.dsanderson.android.util.Dialog;
@@ -104,6 +104,7 @@ public class LoadStationsTask extends AsyncTask<Integer, Integer, Integer> {
 			list.endTransaction();
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			list.cancelTransaction();
 			this.e = e;
 		}

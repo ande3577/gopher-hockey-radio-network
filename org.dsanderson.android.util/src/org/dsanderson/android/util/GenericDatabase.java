@@ -416,7 +416,8 @@ public class GenericDatabase extends SQLiteOpenHelper {
 	}
 
 	public void cancelTransaction() {
-		database.endTransaction();
+		if (database.inTransaction())
+			database.endTransaction();
 	}
 
 }

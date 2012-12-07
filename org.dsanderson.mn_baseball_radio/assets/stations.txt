@@ -1,87 +1,40 @@
 <MN>
-Aitkin 	KKIN 	94.3 FM
-Albert Lea 	KATE 	1450 AM
-Alexandria 	KULO 	94.3 FM
-Austin 	KAUS 	1480 AM
-Bemidji 	KBUN 	1450 AM
-Benson 	KBMO 	1290 AM
-Brainerd 	KLIZ 	1380 AM
-Buffalo 	KRWC 	1360 AM
-Caledonia 	KLCH 	94.9 FM
-Crookston 	KROX 	1260 AM
-Dassel 	KARP 	106.9 FM
-Detroit Lakes 	KDLM 	1340 AM
-Duluth 	KDAL 	610 AM
-Ely 	WELY 	94.5 FM
-Faribault 	KDHL 	920 AM
-Fergus Falls 	KJJK 	1020 AM
-Fosston 	KKCQ 	96.7 FM
-Glencoe 	KGLB-AM 	1310
-Glenwood 	KMGK 	107.1 FM
-Grand Rapids 	KOZY 	1320 AM
-Granite Falls 	KKRC 	93.9 FM
-Hibbing 	WMFG 	1240 AM
-Hutchinson 	KDUZ 	1260 AM
-International Falls 	KSDM 	104.1 FM
-Little Falls 	WYRQ 	92.1 FM
-Long Prairie 	KEYL 	1400 AM
-Mankato 	KTOE 	1420 AM
-Marshall 	KMHL 	1400 AM
-Minneapolis / St. Paul 	KSTP 	1500 AM
-Minneapolis / St. Paul 	KMNV 	1400 AM/1470 AM (Spanish)
-Montevideo 	KMGM 	105.5 FM
-Moose Lake 	WMOZ 	106.9 FM
-Morris 	KMRS 	1230 AM
-New Praque 	KCHK 	1350 AM
-New Ulm 	KNUJ 	860 AM
-Northfield 	KYMN 	1080 AM
-Ortonville 	KDIO 	1350 AM
-Owatonna 	KRFO 	1390 AM
-Park Rapids 	KPRM 	870 AM
-Pine City 	WCMP 	100.9 FM
-Preston 	KFIL 	103.1 FM
-Red Wing 	KWNG 	105.9 FM
-Rochester 	KROC 	1340 AM
-Roseau 	KRWB 	1410 AM
-Sleepy Eye 	KNUJ 	107.3 FM
-St. Cloud 	WJON 	1240 AM
-Staples 	KNSP 	1430 AM
-Starbuck 	KRVY-FM 	97.3 FM
-Thief River Falls 	KTRF 	1230 AM
-Wadena 	KWAD 	920 AM
-Walker 	KAKK 	1570 AM
-Willmar 	KDJS 	1590 AM
-Windom 	KDOM 	1580 AM / 94.3 FM
-Winona 	KWNO 	1230 AM
-Worthington 	KWOA 	730 AM
-<IA>
-Cedar Falls 	KCNZ 	1650 AM
-Cedar Falls 	KDNZ 	1250 AM
-Mason City 	KGLO 	1300 AM
-New Hampton 	KCZE 	95.1 FM
-Sioux City 	KMNS 	620 AM
-Spencer 	KICD 	1240 AM
-<ND>
-Bismarck 	KXMR 	710 AM
-Carrington 	KDAK 	1600 AM
-Devils Lake 	KDLR 	1240 AM
-Fargo 	KFGO 	790 AM
-Grand Forks 	KNOX 	1310 AM
-Hettinger 	KNDC- AM 	1490 AM
-Jamestown 	KQDJ 	1400 AM
-Minot 	KCJB 	910 AM
-Oakes 	KDDR 	1220 AM
-Valley City 	KOVC 	1490 AM
-Wahpeton 	KBMW 	1450 AM
-<SD>
-Aberdeen 	KSDN 	930 AM
-Huron 	KOKK 	1210 AM
-Pierre 	KGFX 	1060 AM
-Rapid City 	KRKI-FM 	95.5 FM
-Sioux Falls 	KSOO 	1140 AM
-Watertown 	KWAT 	950 AM
-Yankton 	WNAX 	570 AM
-<WI>
-Eau Claire 	WBIZ 	1400 AM
-New Richmond 	WIXK 	1590 AM
-Balsam Lake 	WLMX 	104.9
+Ada	KRJB	106.5 FM
+Mahnomen	KRJM	101.5 FM
+Aitkin	KKIN	94.3 FM
+Albert Lea	KATE	1450 AM
+Alexandria	KULO	94.3 FM
+Austin	KAUS	1480 AM
+Austin	KAUS	99.9 FM
+Bemidji	KBUN	1450 AM
+Bemidji	KBUN	94.9 FM
+Brainerd	KBLB	93.3 FM
+Buffalo	KRWC	1360 AM
+Crookston	KROX	1260 AM
+Detroit Lakes	KDLM	1340 AM
+Duluth	WGEE	970 AM
+Duluth	KDAL	610 AM
+Ely	WELY	94.5 FM
+Fairmont	KSUM	1370 AM
+Glencoe	KTWN	1310 AM
+Glenwood	KMGK	107.1 FM
+Grand Rapids	KOZY	1320 AM
+Little Falls	KLTF	960 AM
+Mankato	KMKO	95.7 FM
+Marshall	KMHL	1400 AM
+Minneapolis/St. Paul	KSTP	1500 AM
+Minneapolis/St. Paul	KBEM	88.5 AM
+Montevideo	KDMA	1460 AM
+New Prague	KDRS	95.5 FM
+Pipestone	KLOH	1050 AM
+Preston	KVGO	104.3 FM
+Red Wing	KCUE	1250 AM
+Rochester	KROC	1340 AM
+St. Cloud	KXSS	1390 AM
+Thief River Falls	KKAQ	1460 AM
+Willmar	KVKK	1070 AM
+Willmar	KRVY	97.3 FM
+Windom	KDOM	1580 AM
+Windom	KDOM	94.3 FM
+Winona	KWNO	1230 AM
+Worthington	KWOA	730 AM

@@ -1,4 +1,4 @@
-package org.dsanderson.mn_baseball_radio;
+package org.dsanderson.gopher_hockey_radio;
 
 /**
  * @author David S Anderson
@@ -24,7 +24,8 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import org.dsanderson.mn_baseball_radio.R;
+import org.dsanderson.gopher_hockey_radio.R;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.Html;

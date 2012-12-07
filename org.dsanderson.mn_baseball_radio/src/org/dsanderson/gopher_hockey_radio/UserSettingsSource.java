@@ -1,4 +1,4 @@
-package org.dsanderson.mn_baseball_radio;
+package org.dsanderson.gopher_hockey_radio;
 
 import org.dsanderson.mn_baseball_radio.core.Factory;
 import org.dsanderson.mn_baseball_radio.core.UserSettings;

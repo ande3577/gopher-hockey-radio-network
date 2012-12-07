@@ -1,8 +1,8 @@
-package org.dsanderson.mn_baseball_radio;
+package org.dsanderson.gopher_hockey_radio;
 
-import org.dsanderson.mn_baseball_radio.AboutActivity;
-import org.dsanderson.mn_baseball_radio.PreferenceActivity;
-import org.dsanderson.mn_baseball_radio.R;
+import org.dsanderson.gopher_hockey_radio.AboutActivity;
+import org.dsanderson.gopher_hockey_radio.PreferenceActivity;
+import org.dsanderson.gopher_hockey_radio.R;
 import org.dsanderson.mn_baseball_radio.core.Factory;
 import org.dsanderson.mn_baseball_radio.core.FileFactory;
 
@@ -13,7 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-public class baseBallRadioActivity extends ListActivity {
+public class gopherHockeyRadioActivity extends ListActivity {
 	@SuppressWarnings("unused")
 	private FileFactory file;
 
